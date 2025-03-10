@@ -55,23 +55,24 @@
             <Button Content="√x" FontSize="20" Command="{Binding SquareRootCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
             <Button Content="/" FontSize="20" Command="{Binding DivideCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
-            <Button Content="7" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="8" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="9" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <!-- Digit buttons (1 to 9) with CommandParameter set -->
+            <Button Content="7" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="7" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="8" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="8" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="9" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="9" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="*" FontSize="20" Command="{Binding MultiplyCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
-            <Button Content="4" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="5" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="6" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="4" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="4" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="5" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="5" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="6" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="6" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="-" FontSize="20" Command="{Binding SubtractCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
-            <Button Content="1" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="2" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="3" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="1" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="1" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="2" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="2" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="3" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="3" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="+" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
             <Button Content="+/-" FontSize="20" Command="{Binding NegateCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
-            <Button Content="0" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="0" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="0" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="," FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="=" FontSize="20" Command="{Binding EqualsCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
         </UniformGrid>

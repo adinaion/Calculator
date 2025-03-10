@@ -1,14 +1,11 @@
 ﻿using Calculator.ViewModel.Commands;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows.Input;
 
 namespace Calculator.ViewModel
 {
-    public class CalculatorViewModel
+    public class CalculatorViewModel : INotifyPropertyChanged
     {
         private CalculatorModel _calculatorModel;
 
@@ -21,7 +18,7 @@ namespace Calculator.ViewModel
         public string Display => _calculatorModel.CurrentValue.ToString();
 
         #region Commands
-
+        public ICommand AddDigitCommand => new RelayCommand(param => AddDigit(param));
         public ICommand AddCommand => new RelayCommand(param => ExecuteOperation("+", param));
         public ICommand SubtractCommand => new RelayCommand(param => ExecuteOperation("-", param));
         public ICommand MultiplyCommand => new RelayCommand(param => ExecuteOperation("*", param));
@@ -34,6 +31,16 @@ namespace Calculator.ViewModel
         public ICommand ClearCommand => new RelayCommand(param => Clear());
 
         #endregion
+
+        private void AddDigit(object parameter)
+        {
+            // Dacă parametrul este o cifră, o adăugăm la valoarea curentă
+            if (parameter != null && parameter is string digit)
+            {
+                _calculatorModel.AppendDigit(digit);  // Trimitem cifra la model
+                OnPropertyChanged(nameof(Display));  // Actualizăm display-ul
+            }
+        }
 
         private void ExecuteOperation(string operation, object parameter)
         {
@@ -67,10 +74,12 @@ namespace Calculator.ViewModel
             OnPropertyChanged(nameof(Display));
         }
 
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        // Implementarea INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private void OnPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -1,63 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Calculator
+﻿public class CalculatorModel
 {
-    public class CalculatorModel
+    // Folosim string pentru a manipula display-ul, dar convertim la double pentru operațiile matematice
+    public string CurrentValue { get; private set; } = "0"; // Schimbăm tipul în string pentru a permite concatenarea cifrelor
+
+    // Metoda pentru adăugarea unei cifre
+    public void AppendDigit(string digit)
     {
-        public double CurrentValue { get; private set; } = 0;
-
-        // Apelată pentru fiecare operație
-        public void PerformOperation(string operation, double operand)
+        if (CurrentValue == "0")
         {
-            switch (operation)
-            {
-                case "+":
-                    CurrentValue += operand;
-                    break;
-                case "-":
-                    CurrentValue -= operand;
-                    break;
-                case "*":
-                    CurrentValue *= operand;
-                    break;
-                case "/":
-                    if (operand != 0)
-                        CurrentValue /= operand;
-                    else
-                        throw new DivideByZeroException("Cannot divide by zero.");
-                    break;
-                case "%":
-                    CurrentValue = CurrentValue % operand;
-                    break;
-                case "x^2":
-                    CurrentValue = Math.Pow(CurrentValue, 2);
-                    break;
-                case "sqrt":
-                    if (CurrentValue < 0)
-                        throw new InvalidOperationException("Cannot take the square root of a negative number.");
-                    CurrentValue = Math.Sqrt(CurrentValue);
-                    break;
-                case "+/-":
-                    CurrentValue = -CurrentValue;
-                    break;
-                case "1/x":
-                    if (CurrentValue == 0)
-                        throw new InvalidOperationException("Cannot divide by zero.");
-                    CurrentValue = 1 / CurrentValue;
-                    break;
-                default:
-                    throw new InvalidOperationException("Unknown operation.");
-            }
+            CurrentValue = digit;  // Dacă valoarea este 0, înlocuim cu cifra apăsată
+        }
+        else
+        {
+            CurrentValue += digit;  // Altfel, adăugăm cifra la final
+        }
+    }
+
+    // Apelată pentru fiecare operație
+    public void PerformOperation(string operation, double operand)
+    {
+        double currentValue = double.Parse(CurrentValue); // Convertim CurrentValue la double pentru a face operațiile matematice
+
+        switch (operation)
+        {
+            case "+":
+                currentValue += operand;
+                break;
+            case "-":
+                currentValue -= operand;
+                break;
+            case "*":
+                currentValue *= operand;
+                break;
+            case "/":
+                if (operand != 0)
+                    currentValue /= operand;
+                else
+                    throw new DivideByZeroException("Cannot divide by zero.");
+                break;
+            case "%":
+                currentValue = currentValue % operand;
+                break;
+            case "x^2":
+                currentValue = Math.Pow(currentValue, 2);
+                break;
+            case "sqrt":
+                if (currentValue < 0)
+                    throw new InvalidOperationException("Cannot take the square root of a negative number.");
+                currentValue = Math.Sqrt(currentValue);
+                break;
+            case "+/-":
+                currentValue = -currentValue;
+                break;
+            case "1/x":
+                if (currentValue == 0)
+                    throw new InvalidOperationException("Cannot divide by zero.");
+                currentValue = 1 / currentValue;
+                break;
+            default:
+                throw new InvalidOperationException("Unknown operation.");
         }
 
-        // Resetare la zero
-        public void Clear()
-        {
-            CurrentValue = 0;
-        }
+        // După efectuarea operației, actualizăm CurrentValue ca string
+        CurrentValue = currentValue.ToString();
+    }
+
+    // Resetare la zero
+    public void Clear()
+    {
+        CurrentValue = "0";
     }
 }
