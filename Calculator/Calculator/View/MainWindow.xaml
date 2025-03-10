@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Calculator.ViewModel"
         Title="Calculator"
-        Height="450"
+        Height="540"
         Width="300"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
-    
+
     <Window.DataContext>
         <local:CalculatorViewModel/>
     </Window.DataContext>
@@ -15,20 +15,24 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <!-- For the display area -->
+            <RowDefinition Height="300"/>
+            <!-- For the buttons area -->
         </Grid.RowDefinitions>
 
         <!-- Display area for the result -->
-        <TextBlock Name="DisplayText" 
-                   Grid.Row="0" 
-                   FontSize="36" 
-                   HorizontalAlignment="Right" 
+        <TextBlock Name="DisplayText"
+                   Grid.Row="0"
+                   FontSize="40"
+                   HorizontalAlignment="Right"
                    VerticalAlignment="Center"
-                   Text="{Binding Display}" 
-                   Padding="10"/>
+                   Text="{Binding Display}"
+                   Padding="5"
+                   Margin="10,20,10,0"
+                   Background="LightGray" />
 
         <!-- Buttons for calculator operations -->
-        <UniformGrid Grid.Row="1" Columns="4" Rows="5">
+        <UniformGrid Grid.Row="1" Columns="4" Rows="5" Margin="10">
             <!-- Memory Buttons -->
             <Button Content="MC" FontSize="20" Command="{Binding ClearCommand}"/>
             <Button Content="MR" FontSize="20"/>
@@ -39,32 +43,32 @@
             <Button Content="%" FontSize="20" Command="{Binding ModulusCommand}"/>
             <Button Content="CE" FontSize="20"/>
             <Button Content="C" FontSize="20"/>
-            <Button Content="Backspace" FontSize="20"/>
+            <Button Content="←" FontSize="20" Command="{Binding BackspaceCommand}"/>
 
             <Button Content="1/x" FontSize="20" Command="{Binding InverseCommand}"/>
             <Button Content="x²" FontSize="20" Command="{Binding SquareCommand}"/>
             <Button Content="√x" FontSize="20" Command="{Binding SquareRootCommand}"/>
             <Button Content="/" FontSize="20" Command="{Binding DivideCommand}"/>
 
-            <Button Content="7" FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="8" FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="9" FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="*" FontSize="20" Command="{Binding MultiplyCommand}" />
+            <Button Content="7" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="8" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="9" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="*" FontSize="20" Command="{Binding MultiplyCommand}"/>
 
-            <Button Content="4" FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="5" FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="6" FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="-" FontSize="20" Command="{Binding SubtractCommand}" />
+            <Button Content="4" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="5" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="6" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="-" FontSize="20" Command="{Binding SubtractCommand}"/>
 
-            <Button Content="1" FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="2" FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="3" FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="+" FontSize="20" Command="{Binding AddCommand}" />
+            <Button Content="1" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="2" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="3" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="+" FontSize="20" Command="{Binding AddCommand}"/>
 
-            <Button Content="+/-" FontSize="20" Command="{Binding NegateCommand}" />
-            <Button Content="0" FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="," FontSize="20" Command="{Binding AddCommand}" />
-            <Button Content="=" FontSize="20" Command="{Binding AddCommand}" />
+            <Button Content="+/-" FontSize="20" Command="{Binding NegateCommand}"/>
+            <Button Content="0" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="," FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="=" FontSize="20" Command="{Binding EqualsCommand}"/>
         </UniformGrid>
     </Grid>
 </Window>
