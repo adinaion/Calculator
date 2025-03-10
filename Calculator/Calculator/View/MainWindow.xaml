@@ -12,11 +12,12 @@
         <local:CalculatorViewModel/>
     </Window.DataContext>
 
-    <Grid>
+    <Grid Background="#A7D8E8">
+        <!-- Pastel blue background for the entire window -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <!-- For the display area -->
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
             <!-- For the buttons area -->
         </Grid.RowDefinitions>
 
@@ -28,47 +29,47 @@
                    VerticalAlignment="Center"
                    Text="{Binding Display}"
                    Padding="5"
-                   Margin="10,20,10,0"
-                   Background="LightGray" />
+                   Margin="10,10,20,10" />
+        <!-- Light pastel pink background -->
 
         <!-- Buttons for calculator operations -->
-        <UniformGrid Grid.Row="1" Columns="4" Rows="5" Margin="10">
+        <UniformGrid Columns="4" Rows="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="280" Height="300" Margin="0,0,0,0" Grid.Row="1">
             <!-- Memory Buttons -->
-            <Button Content="MC" FontSize="20" Command="{Binding ClearCommand}"/>
-            <Button Content="MR" FontSize="20"/>
-            <Button Content="M+" FontSize="20"/>
-            <Button Content="M-" FontSize="20"/>
+            <Button Content="MC" FontSize="20" Command="{Binding ClearCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="MR" FontSize="20" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="M+" FontSize="20" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="M-" FontSize="20" Margin="5" Background="#B8A0D4" Foreground="Black"/>
 
             <!-- Calculator Operations -->
-            <Button Content="%" FontSize="20" Command="{Binding ModulusCommand}"/>
-            <Button Content="CE" FontSize="20"/>
-            <Button Content="C" FontSize="20"/>
-            <Button Content="←" FontSize="20" Command="{Binding BackspaceCommand}"/>
+            <Button Content="%" FontSize="20" Command="{Binding ModulusCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="CE" FontSize="20" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="C" FontSize="20" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="←" FontSize="20" Command="{Binding BackspaceCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
-            <Button Content="1/x" FontSize="20" Command="{Binding InverseCommand}"/>
-            <Button Content="x²" FontSize="20" Command="{Binding SquareCommand}"/>
-            <Button Content="√x" FontSize="20" Command="{Binding SquareRootCommand}"/>
-            <Button Content="/" FontSize="20" Command="{Binding DivideCommand}"/>
+            <Button Content="1/x" FontSize="20" Command="{Binding InverseCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="x²" FontSize="20" Command="{Binding SquareCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="√x" FontSize="20" Command="{Binding SquareRootCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="/" FontSize="20" Command="{Binding DivideCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
-            <Button Content="7" FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="8" FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="9" FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="*" FontSize="20" Command="{Binding MultiplyCommand}"/>
+            <Button Content="7" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="8" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="9" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="*" FontSize="20" Command="{Binding MultiplyCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
-            <Button Content="4" FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="5" FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="6" FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="-" FontSize="20" Command="{Binding SubtractCommand}"/>
+            <Button Content="4" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="5" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="6" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="-" FontSize="20" Command="{Binding SubtractCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
-            <Button Content="1" FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="2" FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="3" FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="+" FontSize="20" Command="{Binding AddCommand}"/>
+            <Button Content="1" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="2" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="3" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="+" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
-            <Button Content="+/-" FontSize="20" Command="{Binding NegateCommand}"/>
-            <Button Content="0" FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="," FontSize="20" Command="{Binding AddCommand}"/>
-            <Button Content="=" FontSize="20" Command="{Binding EqualsCommand}"/>
+            <Button Content="+/-" FontSize="20" Command="{Binding NegateCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="0" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="," FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="=" FontSize="20" Command="{Binding EqualsCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
         </UniformGrid>
     </Grid>
 </Window>
