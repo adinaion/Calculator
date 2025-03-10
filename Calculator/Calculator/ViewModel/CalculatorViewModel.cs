@@ -8,14 +8,18 @@ namespace Calculator.ViewModel
     public class CalculatorViewModel : INotifyPropertyChanged
     {
         private CalculatorModel _calculatorModel;
+        private double _previousValue; // Operandul anterior
+        private string _currentOperation; // Operația curentă (ex. "+", "-", etc.)
 
         public CalculatorViewModel()
         {
             _calculatorModel = new CalculatorModel();
+            _previousValue = 0;
+            _currentOperation = string.Empty;
         }
 
         // Display-ul care va fi legat în XAML
-        public string Display => _calculatorModel.CurrentValue.ToString();
+        public string Display => _calculatorModel.CurrentValue;
 
         #region Commands
         public ICommand AddDigitCommand => new RelayCommand(param => AddDigit(param));
@@ -46,20 +50,24 @@ namespace Calculator.ViewModel
         {
             try
             {
-                double operand = 0;
+                double operand = double.Parse(_calculatorModel.CurrentValue);
 
-                // Verificăm dacă butonul apăsat este un număr
-                if (parameter != null && double.TryParse(parameter.ToString(), out operand))
+                if (string.IsNullOrEmpty(_currentOperation))
                 {
-                    _calculatorModel.PerformOperation(operation, operand);
+                    // Dacă nu avem o operație curentă, salvăm operandul inițial
+                    _previousValue = operand;
                 }
                 else
                 {
-                    _calculatorModel.PerformOperation(operation, 0); // Dacă nu avem operand, executăm fără valoare
+                    // Dacă avem o operație anterioară, aplicăm operația pe operandul anterior
+                    _calculatorModel.PerformOperation(_currentOperation, operand);
+                    _previousValue = double.Parse(_calculatorModel.CurrentValue); // Salvăm rezultatul pentru operațiile următoare
                 }
 
-                // Actualizarea display-ului
-                OnPropertyChanged(nameof(Display));
+                // Setăm operația curentă
+                _currentOperation = operation;
+
+                OnPropertyChanged(nameof(Display)); // Actualizăm display-ul cu noua valoare
             }
             catch (Exception ex)
             {
@@ -71,6 +79,8 @@ namespace Calculator.ViewModel
         private void Clear()
         {
             _calculatorModel.Clear();
+            _previousValue = 0;
+            _currentOperation = string.Empty;
             OnPropertyChanged(nameof(Display));
         }
 
