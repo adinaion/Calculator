@@ -37,7 +37,7 @@
         </UniformGrid>
 
         <UniformGrid Columns="4" Rows="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="280" Height="259" Grid.Row="1">
-            <Button Content="%" FontSize="20" Command="{Binding ModulusCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="%" FontSize="20" Command="{Binding ModulusCommand}" CommandParameter="%" Margin="5" Background="#D6A1D2" Foreground="Black"/>
             <Button Content="CE" FontSize="20" Command="{Binding ClearLastEntryCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
             <Button Content="C" FontSize="20" Command="{Binding ClearAllCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
             <Button Content="←" FontSize="20" Command="{Binding BackspaceCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>

@@ -56,28 +56,7 @@
 
     public void CalculateResult()
     {
-        double operand = double.Parse(CurrentValue);
-
-        switch (_currentOperation)
-        {
-            case "+":
-                _previousValue += operand;
-                break;
-            case "-":
-                _previousValue -= operand;
-                break;
-            case "*":
-                _previousValue *= operand;
-                break;
-            case "/":
-                if (operand != 0)
-                    _previousValue /= operand;
-                else
-                    throw new DivideByZeroException("Cannot divide by zero.");
-                break;
-            default:
-                break;
-        }
+        PerformOperation(_currentOperation);
 
         CurrentValue = _previousValue.ToString();
         _currentOperation = string.Empty;
