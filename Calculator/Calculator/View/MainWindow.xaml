@@ -13,15 +13,11 @@
     </Window.DataContext>
 
     <Grid Background="#A7D8E8">
-        <!-- Pastel blue background for the entire window -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- For the display area -->
             <RowDefinition Height="*"/>
-            <!-- For the buttons area -->
         </Grid.RowDefinitions>
 
-        <!-- Display area for the result -->
         <TextBlock Name="DisplayText"
                    Grid.Row="0"
                    FontSize="40"
@@ -31,9 +27,7 @@
                    Padding="5"
                    Margin="10,10,20,10" />
 
-        <!-- UniformGrid for Memory Buttons (M buttons) -->
         <UniformGrid Columns="6" HorizontalAlignment="Center" Margin="0,10,0,325" Width="280" Grid.Row="1">
-            <!-- Memory Buttons -->
             <Button Content="MC" FontSize="20" Command="{Binding ClearMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="MR" FontSize="20" Command="{Binding RecallMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="M+" FontSize="20" Command="{Binding AddToMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
@@ -42,9 +36,7 @@
             <Button Content="M>" FontSize="20" Command="{Binding ShowMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
         </UniformGrid>
 
-        <!-- Buttons for calculator operations -->
         <UniformGrid Columns="4" Rows="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="280" Height="259" Grid.Row="1">
-            <!-- Other calculator buttons -->
             <Button Content="%" FontSize="20" Command="{Binding ModulusCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
             <Button Content="CE" FontSize="20" Command="{Binding ClearLastEntryCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
             <Button Content="C" FontSize="20" Command="{Binding ClearAllCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
@@ -55,7 +47,6 @@
             <Button Content="√x" FontSize="20" Command="{Binding SquareRootCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
             <Button Content="/" FontSize="20" Command="{Binding DivideCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
-            <!-- Digit buttons (1 to 9) with CommandParameter set -->
             <Button Content="7" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="7" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="8" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="8" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="9" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="9" Margin="5" Background="#B8A0D4" Foreground="Black"/>
@@ -69,12 +60,12 @@
             <Button Content="1" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="1" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="2" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="2" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="3" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="3" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="+" FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="+" FontSize="20" Command="{Binding AddCommand}" CommandParameter="+" Margin="5" Background="#D6A1D2" Foreground="Black"/>
 
             <Button Content="+/-" FontSize="20" Command="{Binding NegateCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
             <Button Content="0" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="0" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="," FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="=" FontSize="20" Command="{Binding EqualsCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="=" FontSize="20" Command="{Binding EqualsCommand}" CommandParameter="=" Margin="5" Background="#D6A1D2" Foreground="Black"/>
         </UniformGrid>
     </Grid>
 </Window>
