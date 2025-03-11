@@ -3,18 +3,16 @@
     public string CurrentValue { get; private set; } = "0";
 
     private double _previousValue = 0;
-    private string _currentOperation = string.Empty; // Operația curentă (ex: "+", "-", etc.)
+    private string _currentOperation = string.Empty;
 
     public void AppendDigit(string digit)
     {
         if (CurrentValue == "0")
         {
-            // Dacă valoarea este 0, începem cu prima cifră
             CurrentValue = digit;
         }
         else
         {
-            // Adăugăm cifra la valoarea curentă
             CurrentValue += digit;
         }
     }
@@ -23,7 +21,6 @@
     {
         double operand = double.Parse(CurrentValue);
 
-        // Dacă există o operație anterioară, o aplicăm
         if (!string.IsNullOrEmpty(_currentOperation))
         {
             switch (_currentOperation)
@@ -49,14 +46,11 @@
         }
         else
         {
-            // Dacă nu există o operație anterioară, setăm valoarea curentă ca valoare de început
             _previousValue = operand;
         }
 
-        // Setăm operația curentă
         _currentOperation = operation;
 
-        // Resetăm valoarea curentă pentru a aștepta un nou operand
         CurrentValue = "0";
     }
 
@@ -64,7 +58,6 @@
     {
         double operand = double.Parse(CurrentValue);
 
-        // Aplicăm operația finală
         switch (_currentOperation)
         {
             case "+":
@@ -86,9 +79,8 @@
                 break;
         }
 
-        // Setăm valoarea finală
         CurrentValue = _previousValue.ToString();
-        _currentOperation = string.Empty; // Resetăm operația pentru următorul calcul
+        _currentOperation = string.Empty;
     }
 
     public void Clear()
