@@ -95,4 +95,25 @@
         operand = 1.0 / operand;
         CurrentValue = operand.ToString();
     }
+
+    public void Square()
+    {
+        double operand = double.Parse(CurrentValue);
+        operand = operand * operand;
+        CurrentValue = operand.ToString();
+    }
+
+    public void SquareRoot()
+    {
+        double operand = double.Parse(CurrentValue);
+        operand = Math.Sqrt(operand);
+        CurrentValue = operand.ToString();
+    }
+
+    public void Negate()
+    {
+        double operand = double.Parse(CurrentValue);
+        operand = -1.0 * operand;
+        CurrentValue = operand.ToString();
+    }
 }
