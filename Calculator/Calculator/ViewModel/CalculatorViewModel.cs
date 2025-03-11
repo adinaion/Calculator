@@ -1,5 +1,4 @@
 ﻿using Calculator.ViewModel.Commands;
-using System;
 using System.ComponentModel;
 using System.Windows.Input;
 
@@ -8,14 +7,10 @@ namespace Calculator.ViewModel
     public class CalculatorViewModel : INotifyPropertyChanged
     {
         private CalculatorModel _calculatorModel;
-        private string _currentOperation;
-        private bool _operationPressed;
 
         public CalculatorViewModel()
         {
             _calculatorModel = new CalculatorModel();
-            _currentOperation = string.Empty;
-            _operationPressed = false;
         }
 
         public string Display => _calculatorModel.CurrentValue;
@@ -41,61 +36,21 @@ namespace Calculator.ViewModel
 
         private void ExecuteOperation(object parameter)
         {
-            try
+            if (parameter != null && parameter is string operation)
             {
-
-                if (_operationPressed)
-                {
-                    _calculatorModel.Clear();
-                }
-
-                double operand = double.Parse(_calculatorModel.CurrentValue);
-
-                if (string.IsNullOrEmpty(_currentOperation))
-                {
-                    _calculatorModel.Reset();
-                }
-
-                _calculatorModel.PerformOperation(parameter.ToString(), operand);
-
-                _currentOperation = parameter.ToString();
-                _operationPressed = true;
-
-                OnPropertyChanged(nameof(Display));
-            }
-            catch (Exception ex)
-            {
-                System.Windows.MessageBox.Show(ex.Message);
+                _calculatorModel.PerformOperation(operation);
             }
         }
 
         private void CalculateResult()
         {
-            try
-            {
-                double operand = double.Parse(_calculatorModel.CurrentValue);
-
-                if (string.IsNullOrEmpty(_currentOperation))
-                {
-                    return;
-                }
-
-                _calculatorModel.PerformOperation(_currentOperation, operand);
-                _currentOperation = string.Empty;
-
-                OnPropertyChanged(nameof(Display));
-            }
-            catch (Exception ex)
-            {
-                System.Windows.MessageBox.Show(ex.Message);
-            }
+            _calculatorModel.CalculateResult();
+            OnPropertyChanged(nameof(Display));
         }
 
         private void Clear()
         {
             _calculatorModel.Clear();
-            _currentOperation = string.Empty;
-            _operationPressed = false;
             OnPropertyChanged(nameof(Display));
         }
 
