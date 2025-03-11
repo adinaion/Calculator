@@ -25,6 +25,8 @@ namespace Calculator.ViewModel
         public ICommand EqualsCommand => new RelayCommand(param => CalculateResult());
         public ICommand ClearCommand => new RelayCommand(param => Clear());
         public ICommand ClearLastEntryCommand => new RelayCommand(param => ClearLastEntry());
+        public ICommand BackspaceCommand => new RelayCommand(param => Backspace());
+        public ICommand InverseCommand => new RelayCommand(param => Inverse());
         #endregion
 
         private void AddDigit(object parameter)
@@ -59,6 +61,18 @@ namespace Calculator.ViewModel
         private void ClearLastEntry()
         {
             _calculatorModel.ClearLastEntry();
+            OnPropertyChanged(nameof(Display));
+        }
+
+        private void Backspace()
+        {
+            _calculatorModel.Backspace();
+            OnPropertyChanged(nameof(Display));
+        }
+
+        private void Inverse()
+        {
+            _calculatorModel.Inverse();
             OnPropertyChanged(nameof(Display));
         }
 

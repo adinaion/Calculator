@@ -79,4 +79,20 @@
     {
         CurrentValue = "0";
     }
+
+    public void Backspace()
+    {
+        string newValue = null;
+        for (int i = 0; i < CurrentValue.Length - 1; i++)
+            newValue += CurrentValue[i];
+
+        CurrentValue = newValue;
+    }
+
+    public void Inverse()
+    {
+        double operand = double.Parse(CurrentValue);
+        operand = 1.0 / operand;
+        CurrentValue = operand.ToString();
+    }
 }
