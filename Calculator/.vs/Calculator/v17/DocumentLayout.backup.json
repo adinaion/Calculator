@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|c:\\users\\adina\\desktop\\map\\teme\\tema1\\calculator\\calculator\\calculator\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|solutionrelative:calculator\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|c:\\users\\adina\\desktop\\map\\teme\\tema1\\calculator\\calculator\\calculator\\viewmodel\\calculatorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|solutionrelative:calculator\\viewmodel\\calculatorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|c:\\users\\adina\\desktop\\map\\teme\\tema1\\calculator\\calculator\\calculator\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|solutionrelative:calculator\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|c:\\users\\adina\\desktop\\map\\teme\\tema1\\calculator\\calculator\\calculator\\model\\calculatormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -56,27 +56,27 @@
               "RelativeDocumentMoniker": "Calculator\\Model\\CalculatorModel.cs",
               "ToolTip": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\Model\\CalculatorModel.cs",
               "RelativeToolTip": "Calculator\\Model\\CalculatorModel.cs",
-              "ViewState": "AgIAADcAAABA+////78rwD0AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-10T11:09:00.174Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CalculatorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\ViewModel\\CalculatorViewModel.cs",
               "RelativeDocumentMoniker": "Calculator\\ViewModel\\CalculatorViewModel.cs",
               "ToolTip": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\ViewModel\\CalculatorViewModel.cs",
               "RelativeToolTip": "Calculator\\ViewModel\\CalculatorViewModel.cs",
-              "ViewState": "AgIAAAgAAAAAMzMzM7MqwDEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAqwBUAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-10T11:12:14.751Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\View\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Calculator\\View\\MainWindow.xaml",

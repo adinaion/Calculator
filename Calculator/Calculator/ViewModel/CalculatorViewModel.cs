@@ -21,8 +21,10 @@ namespace Calculator.ViewModel
         public ICommand SubtractCommand => new RelayCommand(param => ExecuteOperation(param));
         public ICommand MultiplyCommand => new RelayCommand(param => ExecuteOperation(param));
         public ICommand DivideCommand => new RelayCommand(param => ExecuteOperation(param));
+        public ICommand ModulusCommand => new RelayCommand(param => ExecuteOperation(param));
         public ICommand EqualsCommand => new RelayCommand(param => CalculateResult());
         public ICommand ClearCommand => new RelayCommand(param => Clear());
+        public ICommand ClearLastEntryCommand => new RelayCommand(param => ClearLastEntry());
         #endregion
 
         private void AddDigit(object parameter)
@@ -51,6 +53,12 @@ namespace Calculator.ViewModel
         private void Clear()
         {
             _calculatorModel.Clear();
+            OnPropertyChanged(nameof(Display));
+        }
+
+        private void ClearLastEntry()
+        {
+            _calculatorModel.ClearLastEntry();
             OnPropertyChanged(nameof(Display));
         }
 

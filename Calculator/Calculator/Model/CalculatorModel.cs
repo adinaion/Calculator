@@ -40,6 +40,12 @@
                     else
                         throw new DivideByZeroException("Cannot divide by zero.");
                     break;
+                case "%":
+                    if (operand != 0)
+                        _previousValue %= operand;
+                    else
+                        throw new DivideByZeroException("Cannot divide by zero.");
+                    break;
                 default:
                     throw new InvalidOperationException("Unknown operation.");
             }
@@ -67,5 +73,10 @@
         CurrentValue = "0";
         _previousValue = 0;
         _currentOperation = string.Empty;
+    }
+
+    public void ClearLastEntry()
+    {
+        CurrentValue = "0";
     }
 }
