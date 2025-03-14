@@ -1,5 +1,7 @@
-﻿using Calculator.ViewModel.Commands;
+﻿using Calculator.Services;
+using Calculator.ViewModel.Commands;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Windows.Input;
 
 namespace Calculator.ViewModel
@@ -7,13 +9,18 @@ namespace Calculator.ViewModel
     public class CalculatorViewModel : INotifyPropertyChanged
     {
         private CalculatorModel _calculatorModel;
+        private MenuCommands _menuCommands;
 
         public CalculatorViewModel()
         {
             _calculatorModel = new CalculatorModel();
+            var menuService = new MenuService(_calculatorModel);
+            _menuCommands = new MenuCommands(menuService);
         }
 
         public string Display => _calculatorModel.CurrentValue;
+
+        public MenuCommands MenuCommands => _menuCommands;
 
         #region Commands
         public ICommand AddDigitCommand => new RelayCommand(param => AddDigit(param));

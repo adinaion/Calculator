@@ -1,6 +1,6 @@
 ﻿public class CalculatorModel
 {
-    public string CurrentValue { get; private set; } = "0";
+    public string CurrentValue { get; set; } = "0";
 
     private double _previousValue = 0;
     private string _currentOperation = string.Empty;
