@@ -46,8 +46,8 @@ namespace Calculator.ViewModel
             if (parameter != null && parameter is string operation)
             {
                 _calculatorModel.PerformOperation(operation);
+                OnPropertyChanged(nameof(Display));
             }
-
         }
 
         private void CalculateResult()

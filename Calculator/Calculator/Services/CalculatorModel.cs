@@ -4,12 +4,14 @@
 
     private double _previousValue = 0;
     private string _currentOperation = string.Empty;
+    private bool _isNewOperation = true;
 
     public void AppendDigit(string digit)
     {
-        if (CurrentValue == "0")
+        if (CurrentValue == "0" || _isNewOperation)
         {
             CurrentValue = digit;
+            _isNewOperation = false;
         }
         else
         {
@@ -49,6 +51,8 @@
                 default:
                     throw new InvalidOperationException("Unknown operation.");
             }
+
+            CurrentValue = _previousValue.ToString();
         }
         else
         {
@@ -57,12 +61,15 @@
 
         _currentOperation = operation;
 
-        CurrentValue = "0";
+        _isNewOperation = true;
     }
 
     public void CalculateResult()
     {
-        PerformOperation(_currentOperation);
+        if (!string.IsNullOrEmpty(_currentOperation))
+        {
+            PerformOperation(_currentOperation);
+        }
 
         CurrentValue = _previousValue.ToString();
         _currentOperation = string.Empty;
@@ -73,11 +80,13 @@
         CurrentValue = "0";
         _previousValue = 0;
         _currentOperation = string.Empty;
+        _isNewOperation = true;
     }
 
     public void ClearLastEntry()
     {
         CurrentValue = "0";
+        _isNewOperation = true;
     }
 
     public void Backspace()
@@ -86,7 +95,8 @@
         for (int i = 0; i < CurrentValue.Length - 1; i++)
             newValue += CurrentValue[i];
 
-        CurrentValue = newValue;
+        CurrentValue = string.IsNullOrEmpty(newValue) ? "0" : newValue;
+        _isNewOperation = false;
     }
 
     public void Inverse()
