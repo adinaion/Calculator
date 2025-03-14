@@ -3,43 +3,45 @@
     public class MenuService
     {
         private readonly CalculatorModel _calculatorModel;
+        private string _clipboard; // Clipboard intern
 
         public MenuService(CalculatorModel calculatorModel)
         {
             _calculatorModel = calculatorModel;
+            _clipboard = string.Empty; // Inițializăm clipboard-ul ca un string gol
         }
 
+        // Implementarea pentru Cut
         public void Cut()
         {
-            // Implementarea logicii pentru Cut (de exemplu, copierea valorii curente într-un clipboard intern)
-            // Poți implementa logica pentru manipularea valorii curente
+            _clipboard = _calculatorModel.CurrentValue; // Salvăm valoarea curentă în clipboard
+            _calculatorModel.CurrentValue = "0"; // Resetăm valoarea curentă
         }
 
+        // Implementarea pentru Copy
         public void Copy()
         {
-            // Implementarea logicii pentru Copy (de exemplu, copierea valorii curente într-un clipboard)
-            System.Windows.Clipboard.SetText(_calculatorModel.CurrentValue);  // Exemplu pentru copiere
+            _clipboard = _calculatorModel.CurrentValue; // Salvăm valoarea curentă în clipboard
         }
 
+        // Implementarea pentru Paste
         public void Paste()
         {
-            // Implementarea logicii pentru Paste (de exemplu, lipirea valorii din clipboard)
-            if (System.Windows.Clipboard.ContainsText())
+            if (!string.IsNullOrEmpty(_clipboard)) // Verificăm dacă există ceva în clipboard
             {
-                _calculatorModel.CurrentValue = System.Windows.Clipboard.GetText();  // Exemplu pentru lipire
+                _calculatorModel.CurrentValue = _clipboard; // Lipim valoarea din clipboard
             }
         }
 
+        // Implementarea logicii pentru gruparea numerelor
         public void ToggleDigitGrouping()
         {
-            // Implementarea logicii pentru gruparea numerelor
             double value = double.Parse(_calculatorModel.CurrentValue);
-            _calculatorModel.CurrentValue = string.Format("{0:N0}", value);  // Exemplu pentru gruparea numerelor
+            _calculatorModel.CurrentValue = string.Format("{0:N0}", value); // Grupăm numerele
         }
 
         public void About()
         {
-            // Afișează informațiile despre aplicație
             System.Windows.MessageBox.Show("Calculator v1.0\nDeveloped by [Your Name]", "About", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
         }
     }

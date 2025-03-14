@@ -15,7 +15,7 @@ namespace Calculator.ViewModel
         {
             _calculatorModel = new CalculatorModel();
             var menuService = new MenuService(_calculatorModel);
-            _menuCommands = new MenuCommands(menuService);
+            _menuCommands = new MenuCommands(menuService, this);
         }
 
         public string Display => _calculatorModel.CurrentValue;
@@ -107,7 +107,7 @@ namespace Calculator.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnPropertyChanged(string propertyName)
+        public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
