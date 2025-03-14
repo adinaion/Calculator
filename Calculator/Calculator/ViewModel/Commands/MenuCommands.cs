@@ -1,17 +1,18 @@
-﻿using System.Windows.Input;
-using Calculator.Services;
+﻿using Calculator.Services;
+using System.Windows.Input;
 
 namespace Calculator.ViewModel.Commands
 {
     public class MenuCommands
     {
         private readonly MenuService _menuService;
-        private readonly CalculatorViewModel _viewModel; // Referință către CalculatorViewModel pentru a actualiza display-ul
 
-        public MenuCommands(MenuService menuService, CalculatorViewModel viewModel)
+        public event Action UpdateDisplay;
+
+        public MenuCommands(MenuService menuService)
         {
             _menuService = menuService;
-            _viewModel = viewModel; // Alocăm referința către CalculatorViewModel
+
             CutCommand = new RelayCommand(Cut);
             CopyCommand = new RelayCommand(Copy);
             PasteCommand = new RelayCommand(Paste);
@@ -25,29 +26,28 @@ namespace Calculator.ViewModel.Commands
         public ICommand ToggleDigitGroupingCommand { get; private set; }
         public ICommand AboutCommand { get; private set; }
 
-        // Acțiunile legate de fiecare comandă
         private void Cut(object parameter)
         {
             _menuService.Cut();
-            _viewModel.OnPropertyChanged(nameof(_viewModel.Display)); // Actualizăm display-ul
+            UpdateDisplay?.Invoke();
         }
 
         private void Copy(object parameter)
         {
             _menuService.Copy();
-            _viewModel.OnPropertyChanged(nameof(_viewModel.Display)); // Actualizăm display-ul
+            UpdateDisplay?.Invoke();
         }
 
         private void Paste(object parameter)
         {
             _menuService.Paste();
-            _viewModel.OnPropertyChanged(nameof(_viewModel.Display)); // Actualizăm display-ul
+            UpdateDisplay?.Invoke();
         }
 
         private void ToggleDigitGrouping(object parameter)
         {
             _menuService.ToggleDigitGrouping();
-            _viewModel.OnPropertyChanged(nameof(_viewModel.Display)); // Actualizăm display-ul
+            UpdateDisplay?.Invoke();
         }
 
         private void About(object parameter)

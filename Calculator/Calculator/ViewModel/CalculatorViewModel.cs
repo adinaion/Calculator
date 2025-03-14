@@ -15,12 +15,21 @@ namespace Calculator.ViewModel
         {
             _calculatorModel = new CalculatorModel();
             var menuService = new MenuService(_calculatorModel);
-            _menuCommands = new MenuCommands(menuService, this);
+            _menuCommands = new MenuCommands(menuService);
+
+            // Abonare la evenimentul UpdateDisplay din MenuCommands
+            _menuCommands.UpdateDisplay += OnDisplayUpdate;
         }
 
         public string Display => _calculatorModel.CurrentValue;
 
         public MenuCommands MenuCommands => _menuCommands;
+
+        private void OnDisplayUpdate()
+        {
+            // Actualizarea display-ului atunci când evenimentul este emis
+            OnPropertyChanged(nameof(Display));
+        }
 
         #region Commands
         public ICommand AddDigitCommand => new RelayCommand(param => AddDigit(param));
