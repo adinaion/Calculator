@@ -76,44 +76,44 @@ namespace Calculator.Services
             }
         }
 
-
-        public void AddToMemoryStack(double value)
+        public void AddToMemoryStack(double valueFromStack, double currentValue)
         {
-            var stackList = memoryStack.ToList();
-            for (int i = 0; i < stackList.Count; i++)
+            var queueList = new Queue<double>();
+
+            foreach (var item in memoryStack.Reverse())
             {
-                if (stackList[i] == value)
-                {
-                    stackList[i] += value;
-                    break;
-                }
+                if (item == valueFromStack)
+                    queueList.Enqueue(item + currentValue);
+                else
+                    queueList.Enqueue(item);
             }
 
             memoryStack.Clear();
-            foreach (var item in stackList)
+            foreach (var item in queueList)
             {
                 memoryStack.Push(item);
             }
         }
 
-        public void SubtractFromMemoryStack(double value)
+        public void SubtractFromMemoryStack(double valueFromStack, double currentValue)
         {
-            var stackList = memoryStack.ToList();
-            for (int i = 0; i < stackList.Count; i++)
+            var queueList = new Queue<double>();
+
+            foreach (var item in memoryStack.Reverse())
             {
-                if (stackList[i] == value)
-                {
-                    stackList[i] -= value;
-                    break;
-                }
+                if (item == valueFromStack)
+                    queueList.Enqueue(item - currentValue);
+                else
+                    queueList.Enqueue(item);
             }
 
             memoryStack.Clear();
-            foreach (var item in stackList)
+            foreach (var item in queueList)
             {
                 memoryStack.Push(item);
             }
         }
+
 
 
         #endregion

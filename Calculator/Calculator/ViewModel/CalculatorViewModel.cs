@@ -194,7 +194,7 @@ namespace Calculator.ViewModel
             if (parameter is double value)
             {
                 double currentValue = double.Parse(_calculatorModel.CurrentValue);
-                _memoryService.AddToMemoryStack(currentValue);
+                _memoryService.AddToMemoryStack(value, currentValue);
                 OnPropertyChanged(nameof(MemoryStack));
             }
         }
@@ -204,7 +204,7 @@ namespace Calculator.ViewModel
             if (parameter is double value)
             {
                 double currentValue = double.Parse(_calculatorModel.CurrentValue);
-                _memoryService.SubtractFromMemoryStack(currentValue);
+                _memoryService.SubtractFromMemoryStack(value, currentValue);
                 OnPropertyChanged(nameof(MemoryStack));
             }
         }
