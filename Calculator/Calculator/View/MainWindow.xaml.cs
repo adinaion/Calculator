@@ -115,7 +115,5 @@ namespace Calculator
                 MessageBox.Show("Tasta necunoscută apăsată: " + e.Key.ToString());
             }
         }
-
-        
     }
 }

@@ -185,7 +185,7 @@ namespace Calculator.ViewModel
             if (parameter is double value)
             {
                 _memoryService.RemoveFromMemoryStack(value);
-                OnPropertyChanged(nameof(MemoryStack));
+                UpdateMemoryStack();
             }
         }
 
@@ -195,7 +195,7 @@ namespace Calculator.ViewModel
             {
                 double currentValue = double.Parse(_calculatorModel.CurrentValue);
                 _memoryService.AddToMemoryStack(value, currentValue);
-                OnPropertyChanged(nameof(MemoryStack));
+                UpdateMemoryStack();
             }
         }
 
@@ -205,11 +205,22 @@ namespace Calculator.ViewModel
             {
                 double currentValue = double.Parse(_calculatorModel.CurrentValue);
                 _memoryService.SubtractFromMemoryStack(value, currentValue);
-                OnPropertyChanged(nameof(MemoryStack));
+                UpdateMemoryStack();
             }
         }
 
         #endregion
+
+        private void UpdateMemoryStack()
+        {
+            MemoryStack.Clear();
+            foreach (var value in _memoryService.ShowMemoryStack())
+            {
+                MemoryStack.Add(value);
+            }
+            OnPropertyChanged(nameof(MemoryStack));
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

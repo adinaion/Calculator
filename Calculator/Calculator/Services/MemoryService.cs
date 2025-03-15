@@ -114,8 +114,6 @@ namespace Calculator.Services
             }
         }
 
-
-
         #endregion
 
     }
