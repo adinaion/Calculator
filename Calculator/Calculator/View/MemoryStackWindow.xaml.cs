@@ -36,10 +36,5 @@ namespace Calculator.View
             this.Close();
         }
 
-        private void UpdateMemoryStack()
-        {
-            //MemoryStackListBox.ItemsSource = _memoryService.ShowMemoryStack();
-        }
-
     }
 }
