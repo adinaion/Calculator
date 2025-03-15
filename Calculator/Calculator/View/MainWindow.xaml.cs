@@ -23,5 +23,64 @@ namespace Calculator
             InitializeComponent();
             this.DataContext = new CalculatorViewModel();
         }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            var viewModel = (CalculatorViewModel)this.DataContext;
+
+            if (e.Key == Key.Return)
+            {
+                if (viewModel.EqualsCommand.CanExecute(null))
+                {
+                    viewModel.EqualsCommand.Execute(null);
+                    Keyboard.ClearFocus();
+                }
+            }
+            else if (e.Key == Key.Escape)
+            {
+                if (viewModel.ClearCommand.CanExecute(null))
+                {
+                    viewModel.ClearCommand.Execute(null);
+                    Keyboard.ClearFocus();
+                }
+            }
+            else if (e.Key == Key.Add)
+            {
+                if (viewModel.AddCommand.CanExecute("+"))
+                {
+                    viewModel.AddCommand.Execute("+");
+                    Keyboard.ClearFocus();
+                }
+            }
+            else if (e.Key == Key.Subtract)
+            {
+                if (viewModel.SubtractCommand.CanExecute("-"))
+                {
+                    viewModel.SubtractCommand.Execute("-");
+                    Keyboard.ClearFocus();
+                }
+            }
+            else if (e.Key == Key.Multiply)
+            {
+                if (viewModel.MultiplyCommand.CanExecute("*"))
+                {
+                    viewModel.MultiplyCommand.Execute("*");
+                    Keyboard.ClearFocus();
+                }
+            }
+            else if (e.Key == Key.Divide)
+            {
+                if (viewModel.DivideCommand.CanExecute("/"))
+                {
+                    viewModel.DivideCommand.Execute("/");
+                    Keyboard.ClearFocus();
+                }
+            }
+        }
+
+
+
+
+
     }
 }

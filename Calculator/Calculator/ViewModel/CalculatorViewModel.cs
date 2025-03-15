@@ -2,6 +2,7 @@
 using Calculator.ViewModel.Commands;
 using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Calculator.ViewModel
