@@ -12,7 +12,14 @@
         WindowStartupLocation="CenterScreen">
     
     <Grid>
-        <ListBox Name="MemoryStackListBox" FontSize="16" Margin="10,40,10,10"/>
+        <ListBox Name="MemoryStackListBox" FontSize="16" Margin="10,40,10,10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
         <Button Content="Close" FontSize="16" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10" Click="CloseButton_Click"/>
     </Grid>
 </Window>

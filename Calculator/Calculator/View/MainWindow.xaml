@@ -46,7 +46,7 @@
             <Button Content="MC" FontSize="20" Command="{Binding ClearMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="M+" FontSize="20" Command="{Binding AddToMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="M-" FontSize="20" Command="{Binding SubtractFromMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="MS" FontSize="20" Command="{Binding StoreInMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="MS" FontSize="20" Command="{Binding SaveToMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="MR" FontSize="20" Command="{Binding RecallMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="M>" FontSize="20" Command="{Binding ShowMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
         </UniformGrid>

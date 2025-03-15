@@ -12,25 +12,10 @@ namespace Calculator.Services
         private double memoryValue = 0;
 
         public double MemoryValue => memoryValue;
-
-        public void AddToMemory(double value)
+        
+        public void SaveToMemoryStack(double value)
         {
-            memoryValue += value;
-        }
-
-        public void SubtractFromMemory(double value)
-        {
-            memoryValue -= value;
-        }
-
-        public void StoreInMemory(double value)
-        {
-            memoryValue = value;
-        }
-
-        public double RecallMemory()
-        {
-            return memoryValue;
+            memoryStack.Push(value);
         }
 
         public IEnumerable<double> ShowMemoryStack()
@@ -38,21 +23,37 @@ namespace Calculator.Services
             return memoryStack;
         }
 
-        public void SaveToMemoryStack(double value)
+        public double RecallMemory()
         {
-            memoryStack.Push(value);
+            return memoryStack.Count > 0 ? memoryStack.Peek() : 0;
         }
 
-        public void ClearMemory()
-        {
-            memoryValue = 0;
-        }
+        //public void AddToMemory(double value)
+        //{
+        //    memoryValue += value;
+        //}
+
+        //public void SubtractFromMemory(double value)
+        //{
+        //    memoryValue -= value;
+        //}
+
+        //public void StoreInMemory(double value)
+        //{
+        //    memoryValue = value;
+        //}
 
 
-        public void ClearMemoryStack()
-        {
-            memoryStack.Clear();
-        }
+        //public void ClearMemory()
+        //{
+        //    memoryValue = 0;
+        //}
+
+
+        //public void ClearMemoryStack()
+        //{
+        //    memoryStack.Clear();
+        //}
     }
 }
 
