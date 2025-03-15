@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Calculator.Services
 {
@@ -10,6 +11,7 @@ namespace Calculator.Services
     {
         private Stack<double> memoryStack = new Stack<double>();
 
+        #region Exterior Memory
         public void SaveToMemoryStack(double value)
         {
             memoryStack.Push(value);
@@ -28,6 +30,7 @@ namespace Calculator.Services
         public void ClearMemory()
         {
             memoryStack.Clear();
+            MessageBox.Show("Stiva de memorie a fost ștearsă!");
         }
 
         public void AddToTopOfMemoryStack(double value)
@@ -57,6 +60,63 @@ namespace Calculator.Services
                 memoryStack.Push(-value);
             }
         }
+
+        #endregion
+
+        #region Interior Memory
+        public void RemoveFromMemoryStack(double value)
+        {
+            var stackList = memoryStack.ToList();
+            stackList.Remove(value);
+
+            memoryStack.Clear();
+            foreach (var item in stackList)
+            {
+                memoryStack.Push(item);
+            }
+        }
+
+
+        public void AddToMemoryStack(double value)
+        {
+            var stackList = memoryStack.ToList();
+            for (int i = 0; i < stackList.Count; i++)
+            {
+                if (stackList[i] == value)
+                {
+                    stackList[i] += value;
+                    break;
+                }
+            }
+
+            memoryStack.Clear();
+            foreach (var item in stackList)
+            {
+                memoryStack.Push(item);
+            }
+        }
+
+        public void SubtractFromMemoryStack(double value)
+        {
+            var stackList = memoryStack.ToList();
+            for (int i = 0; i < stackList.Count; i++)
+            {
+                if (stackList[i] == value)
+                {
+                    stackList[i] -= value;
+                    break;
+                }
+            }
+
+            memoryStack.Clear();
+            foreach (var item in stackList)
+            {
+                memoryStack.Push(item);
+            }
+        }
+
+
+        #endregion
 
     }
 }

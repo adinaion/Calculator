@@ -53,13 +53,20 @@ namespace Calculator.ViewModel
         public ICommand NegateCommand => new RelayCommand(param => Negate());
         #endregion
 
-        #region Memory Commands
+        #region External Memory Commands
         public ICommand SaveToMemoryStackCommand => new RelayCommand(param => SaveToMemoryStack());
         public ICommand ShowMemoryStackCommand => new RelayCommand(param => ShowMemoryStack());
         public ICommand RecallMemoryCommand => new RelayCommand(param => RecallMemory());
         public ICommand ClearMemoryCommand => new RelayCommand(param => ClearMemory());
-        public ICommand AddToMemoryStackCommand => new RelayCommand(param => AddToMemoryStack());
-        public ICommand SubtractFromMemoryStackCommand => new RelayCommand(param => SubtractFromMemoryStack());
+        public ICommand AddToTopOfMemoryStackCommand => new RelayCommand(param => AddToTopOfMemoryStack());
+        public ICommand SubtractFromTopOfMemoryStackCommand => new RelayCommand(param => SubtractFromTopOfMemoryStack());
+        #endregion
+
+        #region Internal Memory Commands
+        public ICommand RemoveFromMemoryStackCommand => new RelayCommand(param => RemoveFromMemoryStack(param));
+        public ICommand AddToMemoryStackCommand => new RelayCommand(param => AddToMemoryStack(param));
+        public ICommand SubtractFromMemoryStackCommand => new RelayCommand(param => SubtractFromMemoryStack(param));
+
         #endregion
 
         #region Basic Calculator Operations Commands
@@ -130,7 +137,7 @@ namespace Calculator.ViewModel
         }
         #endregion
 
-        #region Memory Operations Commands
+        #region External Memory Operations Commands
 
         private void SaveToMemoryStack()
         {
@@ -158,16 +165,48 @@ namespace Calculator.ViewModel
             _memoryService.ClearMemory();
         }
 
-        private void AddToMemoryStack()
+        private void AddToTopOfMemoryStack()
         {
             double currentValue = double.Parse(_calculatorModel.CurrentValue);
             _memoryService.AddToTopOfMemoryStack(currentValue);
         }
 
-        private void SubtractFromMemoryStack()
+        private void SubtractFromTopOfMemoryStack()
         {
             double currentValue = double.Parse(_calculatorModel.CurrentValue);
             _memoryService.SubtractFromTopOfMemoryStack(currentValue);
+        }
+
+        #endregion
+
+        #region Internal Memory Operations Commands
+        private void RemoveFromMemoryStack(object parameter)
+        {
+            if (parameter is double value)
+            {
+                _memoryService.RemoveFromMemoryStack(value);
+                OnPropertyChanged(nameof(MemoryStack));
+            }
+        }
+
+        private void AddToMemoryStack(object parameter)
+        {
+            if (parameter is double value)
+            {
+                double currentValue = double.Parse(_calculatorModel.CurrentValue);
+                _memoryService.AddToMemoryStack(currentValue);
+                OnPropertyChanged(nameof(MemoryStack));
+            }
+        }
+
+        private void SubtractFromMemoryStack(object parameter)
+        {
+            if (parameter is double value)
+            {
+                double currentValue = double.Parse(_calculatorModel.CurrentValue);
+                _memoryService.SubtractFromMemoryStack(currentValue);
+                OnPropertyChanged(nameof(MemoryStack));
+            }
         }
 
         #endregion

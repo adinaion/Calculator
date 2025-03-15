@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace Calculator.View
         public MemoryStackWindow()
         {
             InitializeComponent();
+            this.DataContext = (Application.Current.MainWindow as MainWindow)?.DataContext;
         }
 
         public void SetMemoryStack(IEnumerable<double> memoryStack)
@@ -33,5 +35,11 @@ namespace Calculator.View
         {
             this.Close();
         }
+
+        private void UpdateMemoryStack()
+        {
+            //MemoryStackListBox.ItemsSource = _memoryService.ShowMemoryStack();
+        }
+
     }
 }

@@ -44,8 +44,8 @@
 
         <UniformGrid Columns="6" HorizontalAlignment="Center" Margin="0,68,0,322" Width="280" Grid.Row="1" RenderTransformOrigin="0.502,1.42">
             <Button Content="MC" FontSize="20" Command="{Binding ClearMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="M+" FontSize="20" Command="{Binding AddToMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="M-" FontSize="20" Command="{Binding SubtractFromMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="M+" FontSize="20" Command="{Binding AddToTopOfMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="M-" FontSize="20" Command="{Binding SubtractFromTopOfMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="MS" FontSize="20" Command="{Binding SaveToMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="MR" FontSize="20" Command="{Binding RecallMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="M>" FontSize="20" Command="{Binding ShowMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
