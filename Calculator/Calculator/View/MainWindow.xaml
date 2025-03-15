@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Calculator.ViewModel"
         Title="Calculator"
-        Height="600"
+        Height="500"
         Width="300"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -40,9 +40,9 @@
                    VerticalAlignment="Top"
                    Text="{Binding Display}"
                    Padding="5"
-                   Margin="0,10,10,0" />
+                   Margin="0,0,10,0" />
 
-        <UniformGrid Columns="6" HorizontalAlignment="Center" Margin="0,156,0,336" Width="280" Grid.Row="1" RenderTransformOrigin="0.502,1.42">
+        <UniformGrid Columns="6" HorizontalAlignment="Center" Margin="0,68,0,322" Width="280" Grid.Row="1" RenderTransformOrigin="0.502,1.42">
             <Button Content="MC" FontSize="20" Command="{Binding ClearMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="M+" FontSize="20" Command="{Binding AddToMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="M-" FontSize="20" Command="{Binding SubtractFromMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
@@ -51,7 +51,7 @@
             <Button Content="M>" FontSize="20" Command="{Binding ShowMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
         </UniformGrid>
 
-        <UniformGrid Columns="4" Rows="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="280" Height="259" Grid.Row="1" Margin="0,217,0,0">
+        <UniformGrid Columns="4" Rows="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="280" Height="259" Grid.Row="1" Margin="0,126,0,0">
             <Button Content="%" FontSize="20" Command="{Binding ModulusCommand}" CommandParameter="%" Margin="5" Background="#D6A1D2" Foreground="Black"/>
             <Button Content="CE" FontSize="20" Command="{Binding ClearLastEntryCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
             <Button Content="C" FontSize="20" Command="{Binding ClearCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
