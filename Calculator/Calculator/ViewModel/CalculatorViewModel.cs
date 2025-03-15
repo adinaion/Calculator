@@ -18,7 +18,6 @@ namespace Calculator.ViewModel
             var menuService = new MenuService(_calculatorModel);
             _menuCommands = new MenuCommands(menuService);
 
-            // Abonare la evenimentul UpdateDisplay din MenuCommands
             _menuCommands.UpdateDisplay += OnDisplayUpdate;
         }
 
@@ -28,7 +27,6 @@ namespace Calculator.ViewModel
 
         private void OnDisplayUpdate()
         {
-            // Actualizarea display-ului atunci când evenimentul este emis
             OnPropertyChanged(nameof(Display));
         }
 

@@ -33,7 +33,6 @@ namespace Calculator
                 if (viewModel.EqualsCommand.CanExecute(null))
                 {
                     viewModel.EqualsCommand.Execute(null);
-                    Keyboard.ClearFocus();
                 }
             }
             else if (e.Key == Key.Escape)
@@ -41,7 +40,6 @@ namespace Calculator
                 if (viewModel.ClearCommand.CanExecute(null))
                 {
                     viewModel.ClearCommand.Execute(null);
-                    Keyboard.ClearFocus();
                 }
             }
             else if (e.Key == Key.Add)
@@ -49,7 +47,6 @@ namespace Calculator
                 if (viewModel.AddCommand.CanExecute("+"))
                 {
                     viewModel.AddCommand.Execute("+");
-                    Keyboard.ClearFocus();
                 }
             }
             else if (e.Key == Key.Subtract)
@@ -57,7 +54,6 @@ namespace Calculator
                 if (viewModel.SubtractCommand.CanExecute("-"))
                 {
                     viewModel.SubtractCommand.Execute("-");
-                    Keyboard.ClearFocus();
                 }
             }
             else if (e.Key == Key.Multiply)
@@ -65,7 +61,6 @@ namespace Calculator
                 if (viewModel.MultiplyCommand.CanExecute("*"))
                 {
                     viewModel.MultiplyCommand.Execute("*");
-                    Keyboard.ClearFocus();
                 }
             }
             else if (e.Key == Key.Divide)
@@ -73,8 +68,51 @@ namespace Calculator
                 if (viewModel.DivideCommand.CanExecute("/"))
                 {
                     viewModel.DivideCommand.Execute("/");
-                    Keyboard.ClearFocus();
                 }
+            }
+            else if (e.Key == Key.D0)
+            {
+                viewModel.AddDigitCommand.Execute("0");
+            }
+            else if (e.Key == Key.D1)
+            {
+                viewModel.AddDigitCommand.Execute("1");
+            }
+            else if (e.Key == Key.D2)
+            {
+                viewModel.AddDigitCommand.Execute("2");
+            }
+            else if (e.Key == Key.D3)
+            {
+                viewModel.AddDigitCommand.Execute("3");
+            }
+            else if (e.Key == Key.D4)
+            {
+                viewModel.AddDigitCommand.Execute("4");
+            }
+            else if (e.Key == Key.D5)
+            {
+                viewModel.AddDigitCommand.Execute("5");
+            }
+            else if (e.Key == Key.D6)
+            {
+                viewModel.AddDigitCommand.Execute("6");
+            }
+            else if (e.Key == Key.D7)
+            {
+                viewModel.AddDigitCommand.Execute("7");
+            }
+            else if (e.Key == Key.D8)
+            {
+                viewModel.AddDigitCommand.Execute("8");
+            }
+            else if (e.Key == Key.D9)
+            {
+                viewModel.AddDigitCommand.Execute("9");
+            }
+            else
+            {
+                MessageBox.Show("Tasta necunoscută apăsată: " + e.Key.ToString());
             }
         }
 
