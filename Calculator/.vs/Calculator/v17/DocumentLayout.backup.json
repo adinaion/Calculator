@@ -7,12 +7,20 @@
       "RelativeMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|solutionrelative:calculator\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|c:\\users\\adina\\desktop\\map\\teme\\tema1\\calculator\\calculator\\calculator\\viewmodel\\calculatorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|solutionrelative:calculator\\viewmodel\\calculatorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|c:\\users\\adina\\desktop\\map\\teme\\tema1\\calculator\\calculator\\calculator\\services\\memoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|solutionrelative:calculator\\services\\memoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|c:\\users\\adina\\desktop\\map\\teme\\tema1\\calculator\\calculator\\calculator\\viewmodel\\calculatorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|solutionrelative:calculator\\viewmodel\\calculatorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|c:\\users\\adina\\desktop\\map\\teme\\tema1\\calculator\\calculator\\calculator\\view\\memorystackwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|solutionrelative:calculator\\view\\memorystackwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|c:\\users\\adina\\desktop\\map\\teme\\tema1\\calculator\\calculator\\calculator\\view\\memorystackwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C20ED9-2829-4413-8BEE-176A0DF61EBF}|Calculator\\Calculator.csproj|solutionrelative:calculator\\view\\memorystackwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,13 +34,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MemoryService.cs",
               "DocumentMoniker": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\Services\\MemoryService.cs",
               "RelativeDocumentMoniker": "Calculator\\Services\\MemoryService.cs",
               "ToolTip": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\Services\\MemoryService.cs",
               "RelativeToolTip": "Calculator\\Services\\MemoryService.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAACsAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-15T13:53:53.01Z",
               "IsPinned": true,
@@ -40,13 +48,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "CalculatorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\ViewModel\\CalculatorViewModel.cs",
               "RelativeDocumentMoniker": "Calculator\\ViewModel\\CalculatorViewModel.cs",
               "ToolTip": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\ViewModel\\CalculatorViewModel.cs",
               "RelativeToolTip": "Calculator\\ViewModel\\CalculatorViewModel.cs",
-              "ViewState": "AgIAAIgAAAAAAAAAAAAAAJwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAKkAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-10T11:12:14.751Z",
               "IsPinned": true,
@@ -62,6 +70,33 @@
               "RelativeToolTip": "Calculator\\View\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-03-15T15:21:11.381Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MemoryStackWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\View\\MemoryStackWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Calculator\\View\\MemoryStackWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\View\\MemoryStackWindow.xaml.cs",
+              "RelativeToolTip": "Calculator\\View\\MemoryStackWindow.xaml.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T16:21:26.45Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MemoryStackWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\View\\MemoryStackWindow.xaml",
+              "RelativeDocumentMoniker": "Calculator\\View\\MemoryStackWindow.xaml",
+              "ToolTip": "C:\\Users\\Adina\\Desktop\\MAP\\teme\\tema1\\Calculator\\Calculator\\Calculator\\View\\MemoryStackWindow.xaml",
+              "RelativeToolTip": "Calculator\\View\\MemoryStackWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-15T16:21:17.135Z",
               "IsPinned": true,
               "EditorCaption": ""
             },

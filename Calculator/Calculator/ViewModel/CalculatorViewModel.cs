@@ -54,15 +54,12 @@ namespace Calculator.ViewModel
         #endregion
 
         #region Memory Commands
-        //public ICommand AddToMemoryCommand => new RelayCommand(param => AddToMemory());
-        //public ICommand SubtractFromMemoryCommand => new RelayCommand(param => SubtractFromMemory());
-        //public ICommand StoreInMemoryCommand => new RelayCommand(param => StoreInMemory());
-        //public ICommand ClearMemoryStackCommand => new RelayCommand(param => ClearMemoryStack());
-        //public ICommand ClearMemoryCommand => new RelayCommand(param => ClearMemory());
-
         public ICommand SaveToMemoryStackCommand => new RelayCommand(param => SaveToMemoryStack());
         public ICommand ShowMemoryStackCommand => new RelayCommand(param => ShowMemoryStack());
         public ICommand RecallMemoryCommand => new RelayCommand(param => RecallMemory());
+        public ICommand ClearMemoryCommand => new RelayCommand(param => ClearMemory());
+        public ICommand AddToMemoryStackCommand => new RelayCommand(param => AddToMemoryStack());
+        public ICommand SubtractFromMemoryStackCommand => new RelayCommand(param => SubtractFromMemoryStack());
         #endregion
 
         #region Basic Calculator Operations Commands
@@ -151,45 +148,27 @@ namespace Calculator.ViewModel
 
         private void RecallMemory()
         {
-            double memoryValue = _memoryService.RecallMemory();  // Apelăm funcția din MemoryService
-            _calculatorModel.CurrentValue = memoryValue.ToString();  // Afișăm valoarea pe display
-            OnPropertyChanged(nameof(Display));  // Actualizăm UI-ul
+            double memoryValue = _memoryService.RecallMemory();
+            _calculatorModel.CurrentValue = memoryValue.ToString();
+            OnPropertyChanged(nameof(Display));
         }
 
+        private void ClearMemory()
+        {
+            _memoryService.ClearMemory();
+        }
 
-        //private void AddToMemory()
-        //{
-        //    double currentValue = double.Parse(_calculatorModel.CurrentValue);
-        //    _memoryService.AddToMemory(currentValue);
-        //    OnPropertyChanged(nameof(Display));
-        //}
+        private void AddToMemoryStack()
+        {
+            double currentValue = double.Parse(_calculatorModel.CurrentValue);
+            _memoryService.AddToTopOfMemoryStack(currentValue);
+        }
 
-        //private void SubtractFromMemory()
-        //{
-        //    double currentValue = double.Parse(_calculatorModel.CurrentValue);
-        //    _memoryService.SubtractFromMemory(currentValue);
-        //    OnPropertyChanged(nameof(Display));
-        //}
-
-        //private void StoreInMemory()
-        //{
-        //    double currentValue = double.Parse(_calculatorModel.CurrentValue);
-        //    _memoryService.StoreInMemory(currentValue);
-        //    OnPropertyChanged(nameof(Display));
-        //}
-
-        //private void ClearMemoryStack()
-        //{
-        //    _memoryService.ClearMemoryStack();
-        //    MemoryStack.Clear();
-        //}
-
-        //private void ClearMemory()
-        //{
-        //    _memoryService.ClearMemory();
-        //    OnPropertyChanged(nameof(Display));
-        //}
-
+        private void SubtractFromMemoryStack()
+        {
+            double currentValue = double.Parse(_calculatorModel.CurrentValue);
+            _memoryService.SubtractFromTopOfMemoryStack(currentValue);
+        }
 
         #endregion
 

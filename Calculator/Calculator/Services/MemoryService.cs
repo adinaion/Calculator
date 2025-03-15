@@ -9,10 +9,7 @@ namespace Calculator.Services
     public class MemoryService
     {
         private Stack<double> memoryStack = new Stack<double>();
-        private double memoryValue = 0;
 
-        public double MemoryValue => memoryValue;
-        
         public void SaveToMemoryStack(double value)
         {
             memoryStack.Push(value);
@@ -28,32 +25,39 @@ namespace Calculator.Services
             return memoryStack.Count > 0 ? memoryStack.Peek() : 0;
         }
 
-        //public void AddToMemory(double value)
-        //{
-        //    memoryValue += value;
-        //}
+        public void ClearMemory()
+        {
+            memoryStack.Clear();
+        }
 
-        //public void SubtractFromMemory(double value)
-        //{
-        //    memoryValue -= value;
-        //}
+        public void AddToTopOfMemoryStack(double value)
+        {
+            if (memoryStack.Count > 0)
+            {
+                double topValue = memoryStack.Peek();
+                memoryStack.Pop();
+                memoryStack.Push(topValue + value);
+            }
+            else
+            {
+                memoryStack.Push(value);
+            }
+        }
 
-        //public void StoreInMemory(double value)
-        //{
-        //    memoryValue = value;
-        //}
+        public void SubtractFromTopOfMemoryStack(double value)
+        {
+            if (memoryStack.Count > 0)
+            {
+                double topValue = memoryStack.Peek();
+                memoryStack.Pop();
+                memoryStack.Push(topValue - value);
+            }
+            else
+            {
+                memoryStack.Push(-value);
+            }
+        }
 
-
-        //public void ClearMemory()
-        //{
-        //    memoryValue = 0;
-        //}
-
-
-        //public void ClearMemoryStack()
-        //{
-        //    memoryStack.Clear();
-        //}
     }
 }
 
