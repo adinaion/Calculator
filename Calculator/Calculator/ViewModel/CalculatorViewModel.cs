@@ -1,4 +1,5 @@
 ﻿using Calculator.Services;
+using Calculator.View;
 using Calculator.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -161,14 +162,11 @@ namespace Calculator.ViewModel
 
         private void ShowMemoryStack()
         {
-            var stack = _memoryService.ShowMemoryStack();
+            var memoryStackWindow = new MemoryStackWindow();
 
-            MemoryStack.Clear();
-            foreach (var value in stack)
-            {
-                MemoryStack.Add(value);
-            }
+            memoryStackWindow.SetMemoryStack(_memoryService.ShowMemoryStack());
 
+            memoryStackWindow.ShowDialog();
         }
 
         private void ClearMemoryStack()

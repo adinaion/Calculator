@@ -19,7 +19,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Menu VerticalAlignment="Top">
+        <Menu Background="#A7D8E8" VerticalAlignment="Top">
             <MenuItem Header="File">
                 <MenuItem Header="Cut" Command="{Binding MenuCommands.CutCommand}" />
                 <MenuItem Header="Copy" Command="{Binding MenuCommands.CopyCommand}" />
@@ -50,11 +50,6 @@
             <Button Content="MR" FontSize="20" Command="{Binding RecallMemoryCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="M>" FontSize="20" Command="{Binding ShowMemoryStackCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
         </UniformGrid>
-
-        <StackPanel Grid.Row="1" Margin="0,70,0,400">
-            <ListBox x:Name="MemoryStackListBox" FontSize="18" Background="#F1F1F1" ItemsSource="{Binding MemoryStack}" Height="163" RenderTransformOrigin="0.502,0.95"/>
-        </StackPanel>
-
 
         <UniformGrid Columns="4" Rows="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="280" Height="259" Grid.Row="1" Margin="0,217,0,0">
             <Button Content="%" FontSize="20" Command="{Binding ModulusCommand}" CommandParameter="%" Margin="5" Background="#D6A1D2" Foreground="Black"/>
