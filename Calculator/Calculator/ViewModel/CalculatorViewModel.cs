@@ -17,6 +17,7 @@ namespace Calculator.ViewModel
         private MenuCommands _menuCommands;
         private MemoryService _memoryService;
         private MenuService _menuService;
+        private BaseConverterService _baseConverterService;
 
         public ObservableCollection<double> MemoryStack { get; } = new ObservableCollection<double>();
 
@@ -26,6 +27,7 @@ namespace Calculator.ViewModel
             _menuService = new MenuService(_calculatorModel);
             _menuCommands = new MenuCommands(_menuService);
             _memoryService = new MemoryService();
+            _baseConverterService = new BaseConverterService();
 
             _menuCommands.UpdateDisplay += OnDisplayUpdate;
         }
@@ -72,7 +74,14 @@ namespace Calculator.ViewModel
 
         #endregion
 
-        #region Basic Calculator Operations Commands
+        #region Base Convertion Commands
+        public ICommand ConvertToBinaryCommand => new RelayCommand(param => ConvertToBase(2));
+        public ICommand ConvertToOctalCommand => new RelayCommand(param => ConvertToBase(8));
+        public ICommand ConvertToDecimalCommand => new RelayCommand(param => ConvertToBase(10));
+        public ICommand ConvertToHexadecimalCommand => new RelayCommand(param => ConvertToBase(16));
+        #endregion
+
+        #region Basic Calculator Operations
         private void AddDigit(object parameter)
         {
             if (parameter != null && parameter is string digit)
@@ -149,7 +158,7 @@ namespace Calculator.ViewModel
         }
         #endregion
 
-        #region External Memory Operations Commands
+        #region External Memory Operations
 
         private void SaveToMemoryStack()
         {
@@ -192,7 +201,7 @@ namespace Calculator.ViewModel
 
         #endregion
 
-        #region Internal Memory Operations Commands
+        #region Internal Memory Operations
         private void RemoveFromMemoryStack(object parameter)
         {
             if (parameter is double value)
@@ -222,6 +231,24 @@ namespace Calculator.ViewModel
             }
         }
 
+        #endregion
+
+        #region Convert Operations
+        private void ConvertToBase(int baseValue)
+        {
+            try
+            {
+                int currentValueInDecimal = int.Parse(_calculatorModel.CurrentValue);
+                string convertedValue = _baseConverterService.ConvertToBase(currentValueInDecimal, baseValue);
+
+                _calculatorModel.CurrentValue = convertedValue;
+                OnPropertyChanged(nameof(Display));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare: {ex.Message}", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         #endregion
 
         private void UpdateMemoryStack()

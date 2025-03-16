@@ -50,10 +50,10 @@
                Margin="0,0,10,0" />
 
         <UniformGrid Columns="6" HorizontalAlignment="Center" Margin="0,68,0,322" Width="280" Grid.Row="1" RenderTransformOrigin="0.502,1.42">
-            <Button Content="HEX" FontSize="20" Command="{Binding ClearMemoryCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="DEC" FontSize="20" Command="{Binding AddToTopOfMemoryStackCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="OCT" FontSize="20" Command="{Binding SubtractFromTopOfMemoryStackCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
-            <Button Content="BIN" FontSize="20" Command="{Binding SaveToMemoryStackCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="HEX" FontSize="20" Command="{Binding ConvertToHexadecimalCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="DEC" FontSize="20" Command="{Binding ConvertToDecimalCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="OCT" FontSize="20" Command="{Binding ConvertToOctalCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="BIN" FontSize="20" Command="{Binding ConvertToBinaryCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="MR" FontSize="20" Command="{Binding RecallMemoryCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
             <Button Content="M>" FontSize="20" Command="{Binding ShowMemoryStackCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
         </UniformGrid>
