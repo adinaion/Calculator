@@ -1,4 +1,6 @@
-﻿namespace Calculator.Services
+﻿using System.Globalization;
+
+namespace Calculator.Services
 {
     public class MenuService
     {
@@ -33,7 +35,12 @@
         public void ToggleDigitGrouping()
         {
             double value = double.Parse(_calculatorModel.CurrentValue);
-            _calculatorModel.CurrentValue = string.Format("{0:N0}", value);
+
+            var cultureInfo = CultureInfo.CurrentCulture;
+
+            string formattedValue = value.ToString("N0", cultureInfo);
+
+            _calculatorModel.CurrentValue = formattedValue;
         }
 
         public void About()

@@ -4,6 +4,7 @@ using Calculator.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Globalization;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -29,6 +30,7 @@ namespace Calculator.ViewModel
         }
 
         public string Display => _calculatorModel.CurrentValue;
+
         public MenuCommands MenuCommands => _menuCommands;
 
         private void OnDisplayUpdate()
