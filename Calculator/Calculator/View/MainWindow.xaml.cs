@@ -1,4 +1,5 @@
-﻿using Calculator.ViewModel;
+﻿using Calculator.View;
+using Calculator.ViewModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -114,6 +115,13 @@ namespace Calculator
             {
                 MessageBox.Show("Tasta necunoscută apăsată: " + e.Key.ToString());
             }
+        }
+
+        private void SwitchToProgrammerMode(object sender, RoutedEventArgs e)
+        {
+            var programmerWindow = new ProgrammerWindow();
+            programmerWindow.Show();
+            this.Close();
         }
     }
 }

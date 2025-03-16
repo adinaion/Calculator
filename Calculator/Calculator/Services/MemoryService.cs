@@ -30,7 +30,6 @@ namespace Calculator.Services
         public void ClearMemory()
         {
             memoryStack.Clear();
-            MessageBox.Show("Stiva de memorie a fost ștearsă!");
         }
 
         public void AddToTopOfMemoryStack(double value)

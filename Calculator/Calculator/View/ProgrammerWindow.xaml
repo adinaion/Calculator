@@ -1,0 +1,100 @@
+﻿<Window x:Class="Calculator.View.ProgrammerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator.View"
+        mc:Ignorable="d"
+        Title="ProgrammerWindow"
+        Height="500"
+        Width="300"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        PreviewKeyDown="ProgrammerWindow_PreviewKeyDown">
+
+    <Grid Background="#A7D8E8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Background="#A7D8E8" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Cut" Command="{Binding MenuCommands.CutCommand}" />
+                <MenuItem Header="Copy" Command="{Binding MenuCommands.CopyCommand}" />
+                <MenuItem Header="Paste" Command="{Binding MenuCommands.PasteCommand}" />
+                <MenuItem Header="Digit Grouping" Command="{Binding MenuCommands.ToggleDigitGroupingCommand}" />
+            </MenuItem>
+
+            <MenuItem Header="Help">
+                <MenuItem Header="About" Command="{Binding MenuCommands.AboutCommand}" />
+            </MenuItem>
+        </Menu>
+
+        <Button Content="Switch to Standard Mode"
+        Width="200"
+        Height="20"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Margin="74,0,0,0"
+        Click="SwitchToStandardMode"
+        Background="#B8A0D4" />
+
+        <TextBlock Name="DisplayText"
+               Grid.Row="1"
+               FontSize="40"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Top"
+               Text="{Binding Display}"
+               Padding="5"
+               Margin="0,0,10,0" />
+
+        <UniformGrid Columns="6" HorizontalAlignment="Center" Margin="0,68,0,322" Width="280" Grid.Row="1" RenderTransformOrigin="0.502,1.42">
+            <Button Content="HEX" FontSize="20" Command="{Binding ClearMemoryCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="DEC" FontSize="20" Command="{Binding AddToTopOfMemoryStackCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="OCT" FontSize="20" Command="{Binding SubtractFromTopOfMemoryStackCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="BIN" FontSize="20" Command="{Binding SaveToMemoryStackCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="MR" FontSize="20" Command="{Binding RecallMemoryCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="M>" FontSize="20" Command="{Binding ShowMemoryStackCommand}" Margin="0" Background="#B8A0D4" Foreground="Black"/>
+        </UniformGrid>
+
+        <UniformGrid Columns="5" Rows="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="280" Height="259" Grid.Row="1" Margin="0,126,0,0">
+
+            <Button Content="A" FontSize="20" Command="{Binding ModulusCommand}" CommandParameter="%" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="%" FontSize="20" Command="{Binding ModulusCommand}" CommandParameter="%" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="CE" FontSize="20" Command="{Binding ClearLastEntryCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="C" FontSize="20" Command="{Binding ClearCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="←" FontSize="20" Command="{Binding BackspaceCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+
+            <Button Content="B" FontSize="20" Command="{Binding ModulusCommand}" CommandParameter="%" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="1/x" FontSize="20" Command="{Binding InverseCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="x²" FontSize="20" Command="{Binding SquareCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="√x" FontSize="20" Command="{Binding SquareRootCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="/" FontSize="20" Command="{Binding DivideCommand}" CommandParameter="/" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+
+            <Button Content="C" FontSize="20" Command="{Binding ModulusCommand}" CommandParameter="%" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="7" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="7" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="8" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="8" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="9" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="9" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="*" FontSize="20" Command="{Binding MultiplyCommand}" CommandParameter="*" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+
+            <Button Content="D" FontSize="20" Command="{Binding ModulusCommand}" CommandParameter="%" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="4" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="4" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="5" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="5" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="6" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="6" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="-" FontSize="20" Command="{Binding SubtractCommand}" CommandParameter="-" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+
+            <Button Content="E" FontSize="20" Command="{Binding ModulusCommand}" CommandParameter="%" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="1" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="1" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="2" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="2" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="3" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="3" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="+" FontSize="20" Command="{Binding AddCommand}" CommandParameter="+" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+
+            <Button Content="F" FontSize="20" Command="{Binding ModulusCommand}" CommandParameter="%" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="+/-" FontSize="20" Command="{Binding NegateCommand}" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+            <Button Content="0" FontSize="20" Command="{Binding AddDigitCommand}" CommandParameter="0" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="," FontSize="20" Command="{Binding AddCommand}" Margin="5" Background="#B8A0D4" Foreground="Black"/>
+            <Button Content="=" FontSize="20" Command="{Binding EqualsCommand}" CommandParameter="=" Margin="5" Background="#D6A1D2" Foreground="Black"/>
+        </UniformGrid>
+    </Grid>
+</Window>

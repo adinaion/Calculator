@@ -9,10 +9,6 @@
         WindowStartupLocation="CenterScreen"
         PreviewKeyDown="Window_PreviewKeyDown">
 
-    <Window.DataContext>
-        <local:CalculatorViewModel/>
-    </Window.DataContext>
-
     <Grid Background="#A7D8E8">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -32,6 +28,14 @@
             </MenuItem>
         </Menu>
 
+        <Button Content="Switch to Programmer Mode"
+                Width="200"
+                Height="20"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="74,0,0,0"
+                Click="SwitchToProgrammerMode"
+                Background="#B8A0D4" />
 
         <TextBlock Name="DisplayText"
                    Grid.Row="1"
