@@ -6,6 +6,20 @@ namespace Calculator.Services
     {
         private readonly CalculatorModel _calculatorModel;
         private string _clipboard;
+        private bool _isDigitGroupingEnabled = false;
+
+        public bool IsDigitGroupingEnabled
+        {
+            get { return _isDigitGroupingEnabled; }
+            set
+            {
+                if (_isDigitGroupingEnabled != value)
+                {
+                    _isDigitGroupingEnabled = value;
+                    ToggleDigitGrouping();
+                }
+            }
+        }
 
         public MenuService(CalculatorModel calculatorModel)
         {
@@ -35,10 +49,18 @@ namespace Calculator.Services
         public void ToggleDigitGrouping()
         {
             double value = double.Parse(_calculatorModel.CurrentValue);
-
             var cultureInfo = CultureInfo.CurrentCulture;
 
-            string formattedValue = value.ToString("N0", cultureInfo);
+            string formattedValue;
+
+            if (_isDigitGroupingEnabled)
+            {
+                formattedValue = value.ToString("N0", cultureInfo);
+            }
+            else
+            {
+                formattedValue = value.ToString(CultureInfo.InvariantCulture);
+            }
 
             _calculatorModel.CurrentValue = formattedValue;
         }

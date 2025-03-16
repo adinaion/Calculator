@@ -1,4 +1,5 @@
 ﻿using Calculator.Services;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Calculator.ViewModel.Commands
@@ -46,7 +47,7 @@ namespace Calculator.ViewModel.Commands
 
         private void ToggleDigitGrouping(object parameter)
         {
-            _menuService.ToggleDigitGrouping();
+            _menuService.IsDigitGroupingEnabled = !_menuService.IsDigitGroupingEnabled;
             UpdateDisplay?.Invoke();
         }
 
