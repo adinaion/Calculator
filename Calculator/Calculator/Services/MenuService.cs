@@ -6,7 +6,7 @@ namespace Calculator.Services
     {
         private readonly CalculatorModel _calculatorModel;
         private string _clipboard;
-        private bool _isDigitGroupingEnabled = false;
+        private bool _isDigitGroupingEnabled = Properties.Settings.Default.isDigitGroupingEnabled;
 
         public bool IsDigitGroupingEnabled
         {
@@ -16,6 +16,8 @@ namespace Calculator.Services
                 if (_isDigitGroupingEnabled != value)
                 {
                     _isDigitGroupingEnabled = value;
+                    Properties.Settings.Default.isDigitGroupingEnabled = _isDigitGroupingEnabled;
+                    Properties.Settings.Default.Save();
                     ToggleDigitGrouping();
                 }
             }

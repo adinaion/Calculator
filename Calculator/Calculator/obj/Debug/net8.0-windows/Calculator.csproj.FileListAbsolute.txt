@@ -43,3 +43,4 @@ C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\obj\Debug
 C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\obj\Debug\net8.0-windows\ref\Calculator.dll
 C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\obj\Debug\net8.0-windows\View\MemoryStackWindow.g.cs
 C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\obj\Debug\net8.0-windows\View\MemoryStackWindow.baml
+C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\bin\Debug\net8.0-windows\Calculator.dll.config
