@@ -69,7 +69,7 @@ namespace Calculator.Services
 
         public void About()
         {
-            System.Windows.MessageBox.Show("Calculator v1.0\nDeveloped by Adina", "About", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+            System.Windows.MessageBox.Show("Ion Florina-Adina\n10LF232", "About", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
         }
     }
 }
