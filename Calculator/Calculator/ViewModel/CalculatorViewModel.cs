@@ -29,15 +29,16 @@ namespace Calculator.ViewModel
             _memoryService = new MemoryService();
             _baseConverterService = new BaseConverterService();
 
-            _menuCommands.UpdateDisplay += OnDisplayUpdate;
+            _menuCommands.UpdateDisplay += UpdateDisplay;
         }
 
         public string Display => _calculatorModel.CurrentValue;
 
         public MenuCommands MenuCommands => _menuCommands;
 
-        private void OnDisplayUpdate()
+        private void UpdateDisplay()
         {
+            _menuService.ToggleDigitGrouping();
             OnPropertyChanged(nameof(Display));
         }
 
@@ -87,8 +88,7 @@ namespace Calculator.ViewModel
             if (parameter != null && parameter is string digit)
             {
                 _calculatorModel.AppendDigit(digit);
-                _menuService.ToggleDigitGrouping();
-                OnPropertyChanged(nameof(Display));
+                UpdateDisplay();
             }
         }
 
@@ -97,23 +97,20 @@ namespace Calculator.ViewModel
             if (parameter != null && parameter is string operation)
             {
                 _calculatorModel.PerformOperation(operation);
-                _menuService.ToggleDigitGrouping();
-                OnPropertyChanged(nameof(Display));
+                UpdateDisplay();
             }
         }
 
         private void CalculateResult()
         {
             _calculatorModel.CalculateResult();
-            _menuService.ToggleDigitGrouping();
-            OnPropertyChanged(nameof(Display));
+            UpdateDisplay();
         }
 
         private void Clear()
         {
             _calculatorModel.Clear();
-            _menuService.ToggleDigitGrouping();
-            OnPropertyChanged(nameof(Display));
+            UpdateDisplay();
         }
 
         private void ClearLastEntry()
@@ -125,36 +122,31 @@ namespace Calculator.ViewModel
         private void Backspace()
         {
             _calculatorModel.Backspace();
-            _menuService.ToggleDigitGrouping();
-            OnPropertyChanged(nameof(Display));
+            UpdateDisplay();
         }
 
         private void Inverse()
         {
             _calculatorModel.Inverse();
-            _menuService.ToggleDigitGrouping();
-            OnPropertyChanged(nameof(Display));
+            UpdateDisplay();
         }
 
         private void Square()
         {
             _calculatorModel.Square();
-            _menuService.ToggleDigitGrouping();
-            OnPropertyChanged(nameof(Display));
+            UpdateDisplay();
         }
 
         private void SquareRoot()
         {
             _calculatorModel.SquareRoot();
-            _menuService.ToggleDigitGrouping();
-            OnPropertyChanged(nameof(Display));
+            UpdateDisplay();
         }
 
         private void Negate()
         {
             _calculatorModel.Negate();
-            _menuService.ToggleDigitGrouping();
-            OnPropertyChanged(nameof(Display));
+            UpdateDisplay();
         }
         #endregion
 
@@ -178,8 +170,7 @@ namespace Calculator.ViewModel
         {
             double memoryValue = _memoryService.RecallMemory();
             _calculatorModel.CurrentValue = memoryValue.ToString();
-            _menuService.ToggleDigitGrouping();
-            OnPropertyChanged(nameof(Display));
+            UpdateDisplay();
         }
 
         private void ClearMemory()
