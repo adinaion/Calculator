@@ -36,6 +36,22 @@ namespace Calculator.ViewModel
             }
         }
 
+        private int _selectedBaseIndex = Properties.Settings.Default.selectedBaseIndex;
+
+        public int SelectedBaseIndex
+        {
+            get { return _selectedBaseIndex; }
+            set
+            {
+                if (_selectedBaseIndex != value)
+                {
+                    _selectedBaseIndex = value;
+                    Properties.Settings.Default.selectedBaseIndex = _selectedBaseIndex;
+                    Properties.Settings.Default.Save();
+                    OnPropertyChanged(nameof(SelectedBaseIndex));
+                }
+            }
+        }
         public ObservableCollection<double> MemoryStack { get; } = new ObservableCollection<double>();
 
         public CalculatorViewModel()

@@ -46,7 +46,7 @@
           Margin="2,42,0,0"
           VerticalAlignment="Top"
           HorizontalAlignment="Left"
-          SelectedIndex="{Binding SelectedBaseIndex}"
+          SelectedIndex="{Binding SelectedBaseIndex, Mode=TwoWay}"
           Grid.Row="1"
           Background="#B8A0D4" >
             <ComboBoxItem Background="#B8A0D4" Content="BIN"/>

@@ -46,5 +46,65 @@ namespace Calculator.Properties {
                 this["isProgrammerMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isBinBase {
+            get {
+                return ((bool)(this["isBinBase"]));
+            }
+            set {
+                this["isBinBase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isOctBase {
+            get {
+                return ((bool)(this["isOctBase"]));
+            }
+            set {
+                this["isOctBase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isDecBase {
+            get {
+                return ((bool)(this["isDecBase"]));
+            }
+            set {
+                this["isDecBase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isHexBase {
+            get {
+                return ((bool)(this["isHexBase"]));
+            }
+            set {
+                this["isHexBase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int selectedBaseIndex {
+            get {
+                return ((int)(this["selectedBaseIndex"]));
+            }
+            set {
+                this["selectedBaseIndex"] = value;
+            }
+        }
     }
 }
