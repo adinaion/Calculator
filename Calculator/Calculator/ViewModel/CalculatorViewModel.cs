@@ -19,7 +19,7 @@ namespace Calculator.ViewModel
         private MenuService _menuService;
         private BaseConverterService _baseConverterService;
 
-        private bool _isProgrammerMode = false;
+        private bool _isProgrammerMode = Properties.Settings.Default.isProgrammerMode;
 
         public bool IsProgrammerMode
         {
@@ -29,6 +29,8 @@ namespace Calculator.ViewModel
                 if (_isProgrammerMode != value)
                 {
                     _isProgrammerMode = value;
+                    Properties.Settings.Default.isProgrammerMode = _isProgrammerMode;
+                    Properties.Settings.Default.Save();
                     OnPropertyChanged(nameof(IsProgrammerMode));
                 }
             }

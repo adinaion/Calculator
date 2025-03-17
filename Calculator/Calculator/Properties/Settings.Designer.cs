@@ -34,5 +34,17 @@ namespace Calculator.Properties {
                 this["isDigitGroupingEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isProgrammerMode {
+            get {
+                return ((bool)(this["isProgrammerMode"]));
+            }
+            set {
+                this["isProgrammerMode"] = value;
+            }
+        }
     }
 }

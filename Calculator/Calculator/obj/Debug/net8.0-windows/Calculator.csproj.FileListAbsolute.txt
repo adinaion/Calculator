@@ -26,7 +26,6 @@ C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\bin\Debug
 C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\bin\Debug\net8.0-windows\Calculator.pdb
 C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\obj\Debug\net8.0-windows\View\MainWindow.g.cs
 C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\obj\Debug\net8.0-windows\App.g.cs
-C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\obj\Debug\net8.0-windows\Calculator_MarkupCompile.cache
 C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\obj\Debug\net8.0-windows\Calculator_MarkupCompile.lref
 C:\Users\Adina\Desktop\MAP\teme\tema1\Calculator\Calculator\Calculator\obj\Debug\net8.0-windows\View\MainWindow.baml

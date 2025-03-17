@@ -20,9 +20,10 @@ namespace Calculator.View
     /// </summary>
     public partial class ProgrammerWindow : Window
     {
-        public ProgrammerWindow()
+        public ProgrammerWindow(CalculatorViewModel viewModel)
         {
             InitializeComponent();
+            this.DataContext = viewModel;
         }
 
         private void ProgrammerWindow_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -122,7 +123,7 @@ namespace Calculator.View
             var viewModel = (CalculatorViewModel)this.DataContext;
             viewModel.IsProgrammerMode = false;
 
-            var mainWindow = new MainWindow();
+            var mainWindow = new MainWindow(viewModel);
             mainWindow.DataContext = viewModel;
 
             mainWindow.Show();
