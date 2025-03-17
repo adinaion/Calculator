@@ -71,7 +71,8 @@ namespace Calculator.ViewModel
 
         private void UpdateDisplay()
         {
-            _menuService.ToggleDigitGrouping();
+            if (SelectedBaseIndex != 3)
+                _menuService.ToggleDigitGrouping();
             OnPropertyChanged(nameof(Display));
         }
 
@@ -258,12 +259,26 @@ namespace Calculator.ViewModel
         #endregion
 
         #region Convert Operations
-        private void ConvertToBase(int baseValue)
+        private int GetBaseValueFromIndex(int index)
+        {
+            switch (index)
+            {
+                case 0: return 2;
+                case 1: return 8;
+                case 2: return 10;
+                case 3: return 16;
+                default: throw new ArgumentOutOfRangeException("Invalid base index");
+            }
+        }
+        private void ConvertToBase(int targetBase)
         {
             try
             {
-                int currentValueInDecimal = int.Parse(_calculatorModel.CurrentValue);
-                string convertedValue = _baseConverterService.ConvertToBase(currentValueInDecimal, baseValue);
+                int sourceBase = GetBaseValueFromIndex(SelectedBaseIndex);
+
+                int currentValueInDecimal = _baseConverterService.ConvertFromBase(_calculatorModel.CurrentValue, sourceBase);
+
+                string convertedValue = _baseConverterService.ConvertToBase(currentValueInDecimal, targetBase);
 
                 _calculatorModel.CurrentValue = convertedValue;
                 OnPropertyChanged(nameof(Display));
