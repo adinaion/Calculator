@@ -23,7 +23,6 @@ namespace Calculator.View
         public ProgrammerWindow()
         {
             InitializeComponent();
-            this.DataContext = new CalculatorViewModel();
         }
 
         private void ProgrammerWindow_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -120,7 +119,12 @@ namespace Calculator.View
 
         private void SwitchToStandardMode(object sender, RoutedEventArgs e)
         {
+            var viewModel = (CalculatorViewModel)this.DataContext;
+            viewModel.IsProgrammerMode = false;
+
             var mainWindow = new MainWindow();
+            mainWindow.DataContext = viewModel;
+
             mainWindow.Show();
             this.Close();
         }

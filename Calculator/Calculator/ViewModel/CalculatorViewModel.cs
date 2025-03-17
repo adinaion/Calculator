@@ -19,6 +19,21 @@ namespace Calculator.ViewModel
         private MenuService _menuService;
         private BaseConverterService _baseConverterService;
 
+        private bool _isProgrammerMode = false;
+
+        public bool IsProgrammerMode
+        {
+            get { return _isProgrammerMode; }
+            set
+            {
+                if (_isProgrammerMode != value)
+                {
+                    _isProgrammerMode = value;
+                    OnPropertyChanged(nameof(IsProgrammerMode));
+                }
+            }
+        }
+
         public ObservableCollection<double> MemoryStack { get; } = new ObservableCollection<double>();
 
         public CalculatorViewModel()

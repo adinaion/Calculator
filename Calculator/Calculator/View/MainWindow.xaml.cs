@@ -119,7 +119,12 @@ namespace Calculator
 
         private void SwitchToProgrammerMode(object sender, RoutedEventArgs e)
         {
+            var viewModel = (CalculatorViewModel)this.DataContext;
+            viewModel.IsProgrammerMode = true;
+            
             var programmerWindow = new ProgrammerWindow();
+            programmerWindow.DataContext = viewModel;
+            
             programmerWindow.Show();
             this.Close();
         }
